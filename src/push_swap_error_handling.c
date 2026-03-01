@@ -6,7 +6,7 @@
 /*   By: berkceli <berkceli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/01 11:51:51 by berkceli          #+#    #+#             */
-/*   Updated: 2026/03/01 12:52:00 by berkceli         ###   ########.fr       */
+/*   Updated: 2026/03/01 13:08:42 by berkceli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,3 +79,4 @@ void	controller(int argc, char **argv)
 		i++;
 	}
 }
+
