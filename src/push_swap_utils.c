@@ -6,7 +6,7 @@
 /*   By: berkceli <berkceli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 15:20:15 by ttezcan           #+#    #+#             */
-/*   Updated: 2026/02/28 13:24:05 by berkceli         ###   ########.fr       */
+/*   Updated: 2026/03/04 13:18:03 by berkceli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,7 @@ t_stack	*ft_stacklast(t_stack *stack)
 	if (!stack)
 		return (NULL);
 	while (temp->next_value != NULL)
-	{
 		temp = temp->next_value;
-	}
 	return (temp);
 }
 
@@ -67,7 +65,7 @@ void	ft_stackadd_back(t_stack **stack, t_stack *new)
 
 int	ft_stack_size(t_stack **stack)
 {
-	int	i;
+	int			i;
 	t_stack	*temp;
 
 	i = 0;

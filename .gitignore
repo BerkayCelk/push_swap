@@ -1,1 +1,4 @@
-.agent/
+.github
+.agent
+main.c
+main.o

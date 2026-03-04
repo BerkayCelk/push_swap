@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_error_handling.c                         :+:      :+:    :+:   */
+/*   push_swap_form_ctrl.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: berkceli <berkceli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/01 11:51:51 by berkceli          #+#    #+#             */
-/*   Updated: 2026/03/01 13:08:42 by berkceli         ###   ########.fr       */
+/*   Updated: 2026/03/04 14:13:51 by berkceli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static int	ft_isnum(char *str)
 void	ft_error(void)
 {
 	write(2, "Error\n", 6);
-	exit(1);
+	exit (1);
 }
 
 void	ft_free_res(char **res)
@@ -52,9 +52,7 @@ void	ft_free_res(char **res)
 	free(res);
 }
 
-
-
-void	controller(int argc, char **argv)
+void	format_lmt_ctrl(int argc, char **argv)
 {
 	char		**res;
 	int			i;
@@ -73,10 +71,16 @@ void	controller(int argc, char **argv)
 				ft_free_res(res);
 				ft_error();
 			}
+
+			num = ft_atol(res[j]);
+			if (num < -2147483648 || num > 2147483647)
+			{
+				ft_free_res(res);
+				ft_error();
+			}
 			j++;
 		}
 		ft_free_res(res);
 		i++;
 	}
 }
-

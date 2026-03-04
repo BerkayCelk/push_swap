@@ -1,0 +1,58 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap_brk.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: berkceli <berkceli@student.42istanbul.c    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/04 12:35:32 by berkceli          #+#    #+#             */
+/*   Updated: 2026/03/04 14:08:04 by berkceli         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+
+#include "push_swap.h"
+
+int	ft_is_dup(t_stack *stack, int num)
+{
+	t_stack	*temp;
+
+	temp = stack;
+	while (temp)
+	{
+		if (temp->value == num)
+			return (1);
+		temp = temp->next_value;
+	}
+	return (0);
+}
+
+t_stack	*stack_init(int argc, char **argv)
+{
+	t_stack		*stack_a;
+	char		**res;
+	long int	num;
+	int			j;
+	int			i;
+
+	stack_a = NULL;
+	i = 0;
+	while (++i < argc)
+	{
+		res = ft_split(argv[i], ' ');
+		j = -1;
+		while (res[++j])
+		{
+			num = ft_atol(res[j]);
+			if (ft_is_dup(stack_a, num))
+			{
+				ft_free_res(res);
+				ft_stack_clear(stack_a);
+				ft_error();
+			}
+			ft_stackadd_back(&stack_a, ft_new_stack(num));
+		}
+		ft_free_res(res);
+	}
+	return (stack_a);
+}
