@@ -6,7 +6,7 @@
 /*   By: berkceli <berkceli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 15:20:15 by ttezcan           #+#    #+#             */
-/*   Updated: 2026/03/04 13:18:03 by berkceli         ###   ########.fr       */
+/*   Updated: 2026/03/08 23:36:48 by berkceli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,8 @@ void	ft_stackadd_back(t_stack **stack, t_stack *new)
 
 int	ft_stack_size(t_stack **stack)
 {
-	int			i;
 	t_stack	*temp;
+	int		i;
 
 	i = 0;
 	temp = *stack;
@@ -77,5 +77,3 @@ int	ft_stack_size(t_stack **stack)
 	}
 	return (i);
 }
-
-//norm bound there is 5 function abo

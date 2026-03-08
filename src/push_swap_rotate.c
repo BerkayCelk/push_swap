@@ -6,7 +6,7 @@
 /*   By: berkceli <berkceli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/27 23:22:44 by ttezcan           #+#    #+#             */
-/*   Updated: 2026/02/28 13:00:35 by berkceli         ###   ########.fr       */
+/*   Updated: 2026/03/08 23:48:52 by berkceli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	ft_rotate_b(t_stack **b)
 	first->next_value = NULL;
 	*b = second;
 	(*b)->prev_value = NULL;
-	write(1, "ra\n", 3);
+	write(1, "rb\n", 3);
 }
 
 void	ft_rotate_a_b(t_stack **a, t_stack **b)

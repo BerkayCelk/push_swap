@@ -6,7 +6,7 @@
 /*   By: berkceli <berkceli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/01 11:51:51 by berkceli          #+#    #+#             */
-/*   Updated: 2026/03/04 14:13:51 by berkceli         ###   ########.fr       */
+/*   Updated: 2026/03/06 11:53:24 by berkceli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ static int	ft_isnum(char *str)
 	int	i;
 
 	i = 0;
-
 	if (str[i] == '-' || str[i] == '+')
 		i++;
 	if (str[i] == 0)
@@ -52,35 +51,41 @@ void	ft_free_res(char **res)
 	free(res);
 }
 
-void	format_lmt_ctrl(int argc, char **argv)
+static int	ft_check_res(char **res)
 {
-	char		**res;
-	int			i;
 	int			j;
 	long int	num;
+
+	if (!res[0])
+		return (0);
+	j = 0;
+	while (res[j])
+	{
+		if (!ft_isnum(res[j]))
+			return (0);
+		num = ft_atol(res[j]);
+		if (num < -2147483648 || num > 2147483647)
+			return (0);
+		j++;
+	}
+	return (1);
+}
+
+void	format_lmt_ctrl(int argc, char **argv)
+{
+	char	**res;
+	int		i;
 
 	i = 1;
 	while (i < argc)
 	{
 		res = ft_split(argv[i], ' ');
-		j = 0;
-		while (res[j])
+		if (ft_check_res(res) == 0)
 		{
-			if (!ft_isnum(res[j]))
-			{
-				ft_free_res(res);
-				ft_error();
-			}
-
-			num = ft_atol(res[j]);
-			if (num < -2147483648 || num > 2147483647)
-			{
-				ft_free_res(res);
-				ft_error();
-			}
-			j++;
+			ft_free_res(res);
+			ft_error();
 		}
-		ft_free_res(res);
 		i++;
+		ft_free_res(res);
 	}
 }

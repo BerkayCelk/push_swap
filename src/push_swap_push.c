@@ -1,4 +1,17 @@
-#include	"push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap_push.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: berkceli <berkceli@student.42istanbul.c    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/09 00:06:28 by berkceli          #+#    #+#             */
+/*   Updated: 2026/03/09 00:08:04 by berkceli         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+
+#include "push_swap.h"
 
 void	ft_push_a(t_stack **a, t_stack **b)
 {
@@ -7,9 +20,11 @@ void	ft_push_a(t_stack **a, t_stack **b)
 	if (!*b)
 		return ;
 	temp = *b;
-	*b = (*b)->next_value;
+	*b = temp->next_value;
+	if (*b)
+		(*b)->prev_value = NULL;
+	temp->prev_value = NULL;
 	ft_stackadd_front(a, temp);
-	(*b)->prev_value = NULL;
 	write(1, "pa\n", 3);
 }
 
@@ -20,8 +35,10 @@ void	ft_push_b(t_stack **a, t_stack **b)
 	if (!*a)
 		return ;
 	temp = *a;
-	*a = (*a)->next_value;
+	*a = temp->next_value;
+	if (*a)
+		(*a)->prev_value = NULL;
+	temp->prev_value = NULL;
 	ft_stackadd_front(b, temp);
-	(*a)->prev_value = NULL;
 	write(1, "pb\n", 3);
 }

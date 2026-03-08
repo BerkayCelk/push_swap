@@ -6,13 +6,13 @@
 /*   By: berkceli <berkceli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 22:07:01 by berkay            #+#    #+#             */
-/*   Updated: 2026/03/01 12:55:47 by berkceli         ###   ########.fr       */
+/*   Updated: 2026/03/08 23:29:36 by berkceli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long int	ft_atoil(const char *str)
+long int	ft_atol(const char *str)
 {
 	long int		i;
 	long int		sign;
