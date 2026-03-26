@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_reverse_rotate.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttezcan <ttezcan@student.42istanbul.com    +#+  +:+       +#+        */
+/*   By: berkceli <berkceli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 10:12:06 by ttezcan           #+#    #+#             */
-/*   Updated: 2026/02/28 10:46:45 by ttezcan          ###   ########.fr       */
+/*   Updated: 2026/03/10 14:47:44 by berkceli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	ft_reverse_rotate_b(t_stack **b)
 	*b = last;
 	write(1, "rrb\n", 4);
 }
+
 void	ft_reverse_rotate_a_b(t_stack **a, t_stack **b)
 {
 	t_stack	*first;
