@@ -1,2 +1,8 @@
-.agent
-.github
+.DS_Store
+*.o
+*.a
+*.out
+push_swap
+.vscode/
+.idea/
+__pycache__/
