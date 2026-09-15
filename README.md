@@ -1,35 +1,39 @@
-# push_swap — my implementation work
+# push_swap — my contributions
 
-42 İstanbul, **push_swap**: sort a stack of integers using two stacks and a restricted
-instruction set (`sa`, `sb`, `ss`, `pa`, `pb`, `ra`, `rb`, `rr`, `rra`, `rrb`, `rrr`).
+42 İstanbul **push_swap**: sort a stack of integers using two stacks and a restricted
+instruction set (`sa`, `sb`, `ss`, `pa`, `pb`, `ra`, `rb`, `rr`, `rra`, `rrb`, `rrr`) —
+with the lowest possible number of operations. This was a **team project (two people)**.
 
-This repository is **my own branch** (Berkay Çelik) of the project, archived as-is.
-It contains the parts I wrote and the state my implementation reached (~700 lines of C,
-excluding `libft/`):
+## What I implemented
 
-- **Argument parsing & validation** — single-string and multi-argument input, scope checks,
-  non-numeric and duplicate detection (`./push_swap 1 1` → `Error`)
-- **Stack layer** — doubly-linked stack, initialisation from arguments, `push` / `swap` /
-  `rotate` / `reverse rotate` operations, teardown
-- **Error handling & flow control** — `format_lmt_ctrl`, result checks, resource freeing
-- **Algorithm draft** — `push_swap_medium_algorithm.c`: rank/index assignment and a
-  chunk-based medium algorithm (drafted; not wired into `main` yet)
-- **libft/** — my own C standard library implementation, used as the utility layer
+Taken from the project README's *Team Contributions* section (written by the team) and
+matching my commits:
 
-## Status
+- **Medium sort — O(n·√n) chunk sort**: rank/index assignment and chunk-based pushing
+  to stack B, then ordered retrieval
+- **Simple sort — O(n²)**: small-input sorting path
+- **Complex sort — O(n log n) radix sort**: bit-by-bit radix passes over stack B
+- **Makefile configuration** — build, relink avoidance and the `--simple / --medium /
+  --complex / --adaptive` selector wiring
+- **`sort_three` / `sort_five`** small-case handlers, and finalisation of the adaptive flow
 
-**Work in progress (March 2026).** The program compiles clean
-(`cc -Wall -Wextra -Werror`) and validates input correctly, and the tested paths are
-clean under AddressSanitizer / LeakSanitizer (no leaks, no undefined behaviour).
-The sorting step, however, is **not wired into the flow yet** — `main` parses,
-initialises and frees without emitting moves.
+My teammate (Tekin Tezcan) implemented the core stack data structures, the disorder
+metric calculator, and the rules/allowed-moves layer. The complete, working project with
+both parts merged lives here:
+**[push_swap-team](https://github.com/BerkayCelk/push_swap-team)** — final version in
+branch `berkay4`.
 
-The complete, working version of the assignment was finished as a **team project**
-(two people):
-[push_swap-team](https://github.com/BerkayCelk/push_swap-team) — my work there is in
-branch `berkay4` (bench/error handling and finalisation).
+## This repository
 
-## Build & run
+This repo is my **own working branch** (archived, March 2026): the argument
+parsing/validation layer, the stack layer and the operations (`push`, `swap`, `rotate`,
+`reverse rotate`), error handling, plus the first version of the medium algorithm
+(`push_swap_medium_algorithm.c`). It compiles clean with `cc -Wall -Wextra -Werror` and
+the tested paths are clean under AddressSanitizer / LeakSanitizer. The algorithms above
+were finished and wired into the flow inside the shared repository, which is where the
+working `push_swap` binary is (see the team repo).
+
+## Build
 
     make                      # cc -Wall -Wextra -Werror
     ./push_swap 3 1 2
@@ -38,11 +42,11 @@ branch `berkay4` (bench/error handling and finalisation).
 
 ## Layout
 
-    main.c                       entry point, flow
-    push_swap.h                  shared types and prototypes
-    src/                         parsing/validation, stack init, operations, cleanup
-    push_swap_medium_algorithm.c algorithm draft (not built)
-    libft/                       own C standard library implementation
+    main.c                        entry point, flow
+    push_swap.h                   shared types and prototypes
+    src/                          parsing/validation, stack init, push/swap/rotate/reverse, cleanup
+    push_swap_medium_algorithm.c  medium (chunk) algorithm — first version
+    libft/                        my own C standard library implementation (utility layer)
 
 ## Author
 
